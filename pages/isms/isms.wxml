@@ -1,2 +1,22 @@
 <!--pages/isms/isms.wxml-->
-<text>pages/isms/isms.wxml</text>
+<view class="container">
+
+  <!-- <van-cell title="展示弹出层" is-link bind:click="showPopup" />
+
+  <van-popup show="{{ show }}" bind:close="onClose"> -->
+
+  <van-collapse value="{{ activeName }}" bind:change="onChange" accordion>
+    <block wx:for="{{dataList}}" wx:key="item">
+      <van-collapse-item title-class="word" title="{{item.word}}" name="{{item.id}}">
+        <van-cell title="{{item.explain}}"></van-cell>
+      </van-collapse-item>
+    </block>
+  </van-collapse>
+
+  <!-- <van-panel class="explain" title="{{dataList.word}}" desc="{{dataList.word}}" status="{{dataList.id}}">
+      <view>{{dataList.explain}}</view>
+    </van-panel>
+
+  </van-popup> -->
+
+</view>

@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-panel": "../../dist/panel/index",
+    "van-collapse": "../../dist/collapse/index",
+    "van-collapse-item": "../../dist/collapse-item/index",
+    "van-popup": "../../dist/popup/index",
+    "van-cell": "../../dist/cell/index"
+  }
 }

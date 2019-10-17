@@ -8,7 +8,9 @@
     </block>
   </view>
 
-  <navigator url='../isms/isms'><van-button type="primary">主要按钮</van-button></navigator>
+  <navigator url='../isms/isms'>
+    <van-button type="primary">各种主义</van-button>
+  </navigator>
 
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>

@@ -40,5 +40,11 @@
     >
       <slot />
     </view>
+
+     <view
+      class="my-class"
+    >
+      <slot />
+    </view>
   </view>
 </view>
