@@ -1,8 +1,16 @@
 <!--pages/isms/isms.wxml-->
+<van-search value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot bind:search="onSearch" bind:change="onInput" bind:clear="onClear">
+  <view slot="action" bind:tap="onSearch">搜索</view>
+</van-search>
+
+<view scroll-y="true" class="scrollview" hidden="{{!showSuggest}}">
+    <view wx:for="{{bindSource}}" wx:key="item">
+      <view id="{{item}}" bindtap="itemtap" class="itemview">{{item}}</view>
+    </view>
+</view>
+
 <view class="container">
-
   <!-- <van-cell title="展示弹出层" is-link bind:click="showPopup" />
-
   <van-popup show="{{ show }}" bind:close="onClose"> -->
 
   <van-collapse value="{{ activeName }}" bind:change="onChange" accordion>
@@ -18,5 +26,6 @@
     </van-panel>
 
   </van-popup> -->
+  <menu tabNo="1"></menu>
 
 </view>

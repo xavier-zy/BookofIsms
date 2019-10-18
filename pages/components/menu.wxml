@@ -1,0 +1,6 @@
+<!--pages/components/menu.wxml-->
+<van-tabbar active="{{ active }}" active-color="#07c160" inactive-color="#000" bind:change="onSwitch">
+  <van-tabbar-item icon="home-o">Today's -ism</van-tabbar-item>
+  <van-tabbar-item icon="search">All Isms</van-tabbar-item>
+  <van-tabbar-item icon="setting-o">Setting</van-tabbar-item>
+</van-tabbar>

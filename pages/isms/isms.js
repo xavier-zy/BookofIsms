@@ -8,7 +8,11 @@ Page({
    */
   data: {
     activeName: '1',
-    show: false
+    show: false,
+    adapterSource: [],
+    bindSource: [],
+    showSuggest: false,
+    value: ''
   },
 
   showPopup() {
@@ -17,15 +21,61 @@ Page({
     });
   },
 
-  onClose() {
+  onClear() {
     this.setData({
-      show: false
+      showSuggest: false
     });
   },
 
   onChange(event) {
     this.setData({
-      activeName: event.detail
+      activeName: event.detail,
+    });
+    console.log(event.detail);
+  },
+
+  onInput(event) {
+    this.setData({
+      value: event.detail,
+    });
+    var prefix = event.detail //用户实时输入值
+    var newSource = [] //匹配的结果
+    if (prefix.length >= 2) {
+      prefix = prefix.toLowerCase();
+      prefix = prefix.replace(prefix[0], prefix[0].toUpperCase());
+      this.data.adapterSource.forEach(function(word) {
+        if (word.indexOf(prefix) != -1) {
+          newSource.push(word)
+        }
+      })
+    }
+    console.log(newSource);
+    if (newSource.length != 0) {
+      this.setData({
+        bindSource: newSource,
+        showSuggest: true
+      })
+    } else {
+      this.setData({
+        bindSource: [],
+        showSuggest: false
+      })
+    }
+  },
+
+  itemtap: function (event) {
+    this.setData({
+      value: event.target.id,
+      bindSource: [],
+      showSuggest: false
+    })
+  },
+
+  onSearch() {
+    console.log(this.data.value);
+    this.setData({
+      showSuggest: false,
+      value: ''
     });
   },
 
@@ -33,10 +83,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var temp = [];
+    jsonData.isms.slice(0, 20).forEach(function(item, index) {
+      temp.push(item.word);
+    });
     this.setData({
       //jsonData.dataList获取json.js里定义的json数据，并赋值给dataList
-      dataList: jsonData.isms.slice(0, 10)
+      dataList: jsonData.isms.slice(0, 20),
+      adapterSource: temp
     });
+
   },
 
   /**
