@@ -836,8 +836,8 @@ const isms = [{
   "explain": "The practice of jihad, meaning striving or struggle in arabic, which is a religious duty for every muslim. jihad, for most muslims, is the kind of peaceful struggle against sin that is common to christianity and judaism, but the conventional translation for western usage is \u201choly war\u201d, with an emphasis on violence. from that comes the connection of the term, from the late 20th century onwards, with islamist war \u2013 as in the war of the mujahideen (those who wage jihad) against soviet troops in afghanistan in the 1980s \u2013 and islamist terrorism, as in the activities in the 21st century of al-qaeda. the french scholar gilles kepel has coined the term \u201csalafist-jihadism\u201d to describe the doctrines of al-qaeda and the now-defunct armed islamic group (groupe islamique arm\u00e9) in algeria. (salafist comes from the arabic salaf, meaning ancestor or forefather, and therefore hearkens back to a time when islam had not supposedly strayed from its original purity \u2013 see salafism.)jingoism extreme patriotism, often demonstrated by support for an aggressive foreign policy. the word originated from the phrase \u201cby jingo\u201d \u2013 a euphemism for \u201cby jesus\u201d \u2013 in a british music-hall song of the late 1870s threatening war with russia (which in 1878 was menacing constantinople in the russo-turkish war). the song\u2019s chorus went:we don\u2019t want to fight but by jingo if we do,we\u2019ve got the ships, we\u2019ve got the men, and got the money too!we\u2019ve fought the bear before, and while we\u2019re britons true,the russians shall not have constantinople."
 }, {
   "id": 210,
-  "word": "  the term \u201cjingoism",
-  "explain": " was coined by a british radical, george holyoake (1817\u20131906), in a letter to the daily news on march 13th 1978."
+  "word": "Jihadism_ ",
+  "explain": "The term \u201c jingoism was coined by a british radical, george holyoake (1817\u20131906), in a letter to the daily news on march 13th 1978."
 }, {
   "id": 211,
   "word": "Journalism",

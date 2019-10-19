@@ -51,7 +51,6 @@ Page({
     this.setData({
       activeName: event.detail,
     });
-    console.log(event.detail);
   },
 
   onInput(event) {

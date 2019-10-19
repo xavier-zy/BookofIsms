@@ -15,13 +15,19 @@ Component({
     active: 0,
     show: false,
     checked_lang: true,
-    checked_prez: true
+    checked_prez: true,
+    showGrid_: true
   },
 
   lifetimes: {
     attached: function() {
       this.setData({
-        active: parseInt(this.data.tabNo)
+        active: parseInt(this.data.tabNo),
+      })
+    },
+    moved: function () {
+      this.setData({
+        showGrid_: this.data.showGrid
       })
     }
   },
@@ -31,7 +37,8 @@ Component({
    */
   methods: {
     onChange: function(event) {
-      console.log(event.detail);
+      console.log("Tab No: " + this.data.tabNo);
+
       if (event.detail==0){
         wx.navigateTo({
           url: '../index/index',
@@ -47,11 +54,13 @@ Component({
       var tabNo = parseInt(this.data.tabNo);
       this.setData({
         show: !this.data.show,
-        active: this.data.show ? 2 : tabNo
+        active: this.data.show ? tabNo : 2
       })
     },
 
     onClose() {
+      console.log("on close Tab No: " + this.data.tabNo);
+
       this.setData({
         show: false,
         active: parseInt(this.data.tabNo)
