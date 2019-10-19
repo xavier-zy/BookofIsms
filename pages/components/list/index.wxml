@@ -1,0 +1,22 @@
+<!--pages/components/list/index.wxml-->
+<van-row>
+  <van-col span="2">
+    <view class="my-hint" id="A">
+      A
+    </view>
+  </van-col>
+  <van-col span="22">
+    <van-cell title="{{item.word}}" value="{{item.word[0]}}" title-class="my-title" wx:for="{{dataList}}" wx:key="item" />
+  </van-col>
+</van-row>
+
+<van-row>
+  <van-col span="2">
+    <view class="my-hint" id="B">
+      B 
+    </view>
+  </van-col>
+  <van-col span="22">
+    <van-cell title="{{item.word}}" value="{{item.word[0]}}" title-class="my-title" wx:for="{{dataList}}" wx:key="item" />
+  </van-col>
+</van-row>

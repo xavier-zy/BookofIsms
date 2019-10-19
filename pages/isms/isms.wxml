@@ -4,28 +4,44 @@
 </van-search>
 
 <view scroll-y="true" class="scrollview" hidden="{{!showSuggest}}">
-    <view wx:for="{{bindSource}}" wx:key="item">
-      <view id="{{item}}" bindtap="itemtap" class="itemview">{{item}}</view>
-    </view>
+  <view wx:for="{{bindSource}}" wx:key="item">
+    <view id="{{item}}" bindtap="itemtap" class="itemview">{{item}}</view>
+  </view>
 </view>
 
 <view class="container">
   <!-- <van-cell title="展示弹出层" is-link bind:click="showPopup" />
   <van-popup show="{{ show }}" bind:close="onClose"> -->
+  <block wx:if="{{showGrid}}">
+    <van-grid clickable square>
+      <view wx:for="{{ alphabets }}" wx:key="item">
+        <van-grid-item id="{{item}}" text="{{item}}" wx:if="{{item!='*'}}" bind:click="toListPage" />
+        <van-grid-item id="{{item}}" use-slot wx:else bind:click="toListPage">
+          <van-icon name="orders-o" size="25px" />
+          <text style="font-size:12px;">list of isms</text>
+        </van-grid-item>
+      </view>
+    </van-grid>
+  </block>
 
-  <van-collapse value="{{ activeName }}" bind:change="onChange" accordion>
+  <block wx:else>
+    <list position="{{position}}"></list>
+  </block>
+
+  <view style="height:60px"></view>
+  <!-- <van-collapse value="{{ activeName }}" bind:change="onChange" accordion>
     <block wx:for="{{dataList}}" wx:key="item">
       <van-collapse-item title-class="word" title="{{item.word}}" name="{{item.id}}">
         <van-cell title="{{item.explain}}"></van-cell>
       </van-collapse-item>
     </block>
-  </van-collapse>
+  </van-collapse> -->
 
   <!-- <van-panel class="explain" title="{{dataList.word}}" desc="{{dataList.word}}" status="{{dataList.id}}">
       <view>{{dataList.explain}}</view>
     </van-panel>
 
   </van-popup> -->
-  <menu tabNo="1"></menu>
+  <menu tabNo="1" showGrid="{{showGrid}}"></menu>
 
 </view>

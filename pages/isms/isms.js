@@ -12,12 +12,32 @@ Page({
     adapterSource: [],
     bindSource: [],
     showSuggest: false,
-    value: ''
+    alphabets: ['*', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+      'I', 'J', 'K', 'L', 'M', 'N', 'O',
+      'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W-Z'
+    ],
+    value: '',
+    showGrid: true,
+    position: ''
+  },
+
+  showGrid(e) {
+    this.setData({
+      showGrid: e.detail
+    });
   },
 
   showPopup() {
     this.setData({
       show: true
+    });
+  },
+
+  toListPage(event){
+    console.log(event.target.id);
+    this.setData({
+      showGrid: false,
+      position: event.target.id
     });
   },
 
@@ -49,7 +69,7 @@ Page({
         }
       })
     }
-    console.log(newSource);
+
     if (newSource.length != 0) {
       this.setData({
         bindSource: newSource,
@@ -63,7 +83,7 @@ Page({
     }
   },
 
-  itemtap: function (event) {
+  itemtap: function(event) {
     this.setData({
       value: event.target.id,
       bindSource: [],

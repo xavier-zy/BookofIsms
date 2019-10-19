@@ -2,6 +2,12 @@
   "component": true,
   "usingComponents": {
     "van-tabbar": "../../dist/tabbar/index",
-    "van-tabbar-item": "../../dist/tabbar-item/index"
+    "van-tabbar-item": "../../dist/tabbar-item/index",
+    "van-action-sheet": "../../dist/action-sheet/index",
+    "van-divider": "../../dist/divider/index",
+    "van-switch": "../../dist/switch/index",
+    "van-row": "../../dist/row/index",
+    "van-col": "../../dist/col/index",
+    "van-cell": "../../dist/cell/index"
   }
 }
