@@ -5,7 +5,7 @@ Component({
    */
   properties: {
     tabNo: String,
-    showGrid: Boolean
+    showList: Boolean
   },
 
   /**
@@ -16,18 +16,14 @@ Component({
     show: false,
     checked_lang: true,
     checked_prez: true,
-    showGrid_: true
+    showList_: false
   },
 
   lifetimes: {
     attached: function() {
       this.setData({
         active: parseInt(this.data.tabNo),
-      })
-    },
-    moved: function () {
-      this.setData({
-        showGrid_: this.data.showGrid
+        showList_: this.data.showList
       })
     }
   },

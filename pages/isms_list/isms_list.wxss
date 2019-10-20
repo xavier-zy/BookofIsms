@@ -1,1 +1,12 @@
 /* pages/isms_list/isms_list.wxss */
+.my-title {
+  color: #e3120b;
+}
+
+.my-hint {
+  color: #e3120b;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 22px;
+  font-weight: bolder;
+}

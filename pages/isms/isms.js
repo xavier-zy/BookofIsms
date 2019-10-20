@@ -30,7 +30,9 @@ Page({
   },
 
   toListPage(event){
-    console.log(event.target.id);
+    wx.navigateTo({
+      url: '../isms_list/isms_list?position=' + event.target.id,
+    })
     this.setData({
       showGrid: false,
       position: event.target.id
