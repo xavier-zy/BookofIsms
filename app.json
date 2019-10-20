@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/isms/isms"
+    "pages/isms/isms",
+    "pages/isms_list/isms_list"
   ],
   "window": {
     "backgroundTextStyle": "light",

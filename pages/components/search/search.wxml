@@ -1,0 +1,12 @@
+<!--pages/components/search/search.wxml-->
+<van-search value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot bind:search="onSearch" bind:change="onInput" bind:clear="onClear">
+  <view slot="action" bind:tap="onSearch">搜索</view>
+</van-search>
+
+<view scroll-y="true" class="scrollview" hidden="{{!showSuggest}}">
+  <view wx:for="{{bindSource}}" wx:key="item">
+    <view id="{{item}}" bindtap="itemtap" class="itemview">{{item}}</view>
+  </view>
+</view>
+
+

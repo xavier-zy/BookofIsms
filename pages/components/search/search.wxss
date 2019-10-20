@@ -1,0 +1,17 @@
+/* pages/components/search/search.wxss */
+.scrollview {
+  display: block;
+  position: relative;
+  font-family: "Charter", "Times", "Helvetica";
+  padding: 5px 12px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ebedf0;
+  border-top: 0px;
+  margin: 0 16px;
+}
+
+.itemview {
+  padding: 5px 0;
+  border-top: 1px solid #ebedf0;
+}

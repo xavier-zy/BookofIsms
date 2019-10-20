@@ -2,7 +2,7 @@
 <van-tabbar active="{{ active }}" active-color="#07c160" inactive-color="#000" bind:change="onChange" z-index="{{10}}">
   <van-tabbar-item icon="home-o">Today's -ism</van-tabbar-item>
   <van-tabbar-item icon="search" wx:if="{{showGrid_}}">All Isms</van-tabbar-item>
-  <van-tabbar-item icon="orders-o" wx:else>All Isms</van-tabbar-item>
+  <van-tabbar-item icon="orders-o" wx:else bindtap="onShowGrid">All Isms</van-tabbar-item>
   <van-tabbar-item icon="setting-o" bindtap="onShowSetting">Setting</van-tabbar-item>
 </van-tabbar>
 

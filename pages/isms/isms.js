@@ -9,14 +9,10 @@ Page({
   data: {
     activeName: '1',
     show: false,
-    adapterSource: [],
-    bindSource: [],
-    showSuggest: false,
     alphabets: ['*', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
       'I', 'J', 'K', 'L', 'M', 'N', 'O',
       'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W-Z'
     ],
-    value: '',
     showGrid: true,
     position: ''
   },
@@ -41,60 +37,9 @@ Page({
     });
   },
 
-  onClear() {
-    this.setData({
-      showSuggest: false
-    });
-  },
-
   onChange(event) {
     this.setData({
       activeName: event.detail,
-    });
-  },
-
-  onInput(event) {
-    this.setData({
-      value: event.detail,
-    });
-    var prefix = event.detail //用户实时输入值
-    var newSource = [] //匹配的结果
-    if (prefix.length >= 2) {
-      prefix = prefix.toLowerCase();
-      prefix = prefix.replace(prefix[0], prefix[0].toUpperCase());
-      this.data.adapterSource.forEach(function(word) {
-        if (word.indexOf(prefix) != -1) {
-          newSource.push(word)
-        }
-      })
-    }
-
-    if (newSource.length != 0) {
-      this.setData({
-        bindSource: newSource,
-        showSuggest: true
-      })
-    } else {
-      this.setData({
-        bindSource: [],
-        showSuggest: false
-      })
-    }
-  },
-
-  itemtap: function(event) {
-    this.setData({
-      value: event.target.id,
-      bindSource: [],
-      showSuggest: false
-    })
-  },
-
-  onSearch() {
-    console.log(this.data.value);
-    this.setData({
-      showSuggest: false,
-      value: ''
     });
   },
 
