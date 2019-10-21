@@ -2,12 +2,13 @@
 
 .my-popup {
   top: 50% !important;
-  width: 85%;
+  width: 90%;
   overflow: hidden;
-  /* max-height: 90%; */
+  /* border-radius: 5px; */
   font-family: "Charter", "Times", "Helvetica";
   /* padding-bottom: 20px; */
 }
+
 /* 
 .my-cell {
    -webkit-flex: 0;

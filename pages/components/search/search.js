@@ -44,6 +44,7 @@ Component({
       }
 
       var word = this.data.value;
+      word = word.replace(word[0], word[0].toUpperCase());
       var alphabet = word[0];
       if (data_[alphabet] == null) {
         this.setData({
@@ -114,6 +115,7 @@ Component({
         bindSource: [],
         showSuggest: false
       })
+      this.onSearch();
     }
   }
 })
