@@ -4,7 +4,7 @@
   top: 50% !important;
   width: 85%;
   overflow: hidden;
-  max-height: 90%;
+  /* max-height: 90%; */
   font-family: "Charter", "Times", "Helvetica";
   /* padding-bottom: 20px; */
 }

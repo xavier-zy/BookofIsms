@@ -13,16 +13,23 @@ Component({
    */
   data: {
     show: false,
+    maxHeight: 0,
     result: []
   },
 
-  // lifetimes: {
-  //   attached: function () {
-  //     this.setData({
-  //       result: this.data.searchResult
-  //     });
-  //   }
-  // },
+  lifetimes: {
+    attached: function () {
+      var mh = 0;
+      wx.getSystemInfo({
+        success(res) {
+          mh = res.windowHeight * 0.9
+        }
+      });
+      this.setData({
+        maxHeight: mh
+      });
+    }
+  },
 
   /**
    * 组件的方法列表

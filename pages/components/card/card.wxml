@@ -1,7 +1,7 @@
 <!--pages/components/card/card.wxml-->
 <view>
 
-  <van-popup custom-class="my-popup" round show="{{ show }}" bind:close="onClose">
+  <van-popup custom-class="my-popup" custom-style="max-height:{{maxHeight}}px;" round show="{{ show }}" bind:close="onClose">
 
     <van-cell title="{{ result.word }}" title-width="90%" custom-class="my-cell" title-class="my-title" label="by The Economist">
       <van-icon name="close" bindtap="onClose" size="20px"/>
