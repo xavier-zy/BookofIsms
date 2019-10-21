@@ -1,5 +1,4 @@
 // pages/isms/isms.js
-var jsonData = require('../../data/Isms2.js');
 
 Page({
 
@@ -49,16 +48,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var temp = [];
-    jsonData.isms.slice(0, 20).forEach(function(item, index) {
-      temp.push(item.word);
-    });
-    this.setData({
-      //jsonData.dataList获取json.js里定义的json数据，并赋值给dataList
-      dataList: jsonData.isms.slice(0, 20),
-      adapterSource: temp
-    });
-
+    
   },
 
   /**

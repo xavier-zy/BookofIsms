@@ -5,7 +5,7 @@ Component({
    */
   properties: {
     showCard: Boolean,
-    searchResult: String
+    searchResult: Object
   },
 
   /**
@@ -13,8 +13,16 @@ Component({
    */
   data: {
     show: false,
-    result: ''
+    result: []
   },
+
+  // lifetimes: {
+  //   attached: function () {
+  //     this.setData({
+  //       result: this.data.searchResult
+  //     });
+  //   }
+  // },
 
   /**
    * 组件的方法列表

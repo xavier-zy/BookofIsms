@@ -1,5 +1,6 @@
 // pages/components/search/search.js
 var wordsData = require('../../../data/words.js');
+var explainsData = require('../../../data/explains.js');
 
 Component({
   /**
@@ -18,7 +19,7 @@ Component({
     bindSource: [],
     adapterSource: {},
     showCard: false,
-    result: ''
+    result: {}
   },
 
   lifetimes: {
@@ -34,12 +35,40 @@ Component({
    */
   methods: {
     onSearch() {
-      this.setData({
-        showSuggest: false,
-        value: '',
-        result: this.data.value,
-        showCard: true
-      });
+      const data_ = explainsData.explains;
+
+      if (this.data.value == '') {
+        this.setData({
+          showCard: false
+        })
+      }
+
+      var word = this.data.value;
+      var alphabet = word[0];
+      if (data_[alphabet] == null) {
+        this.setData({
+          result: "",
+          showSuggest: false,
+          value: '',
+          showCard: false
+        })
+      } else if (data_[alphabet][word] == null) {
+        this.setData({
+          result: "",
+          showSuggest: false,
+          value: ''
+        })
+      } else {
+        this.setData({
+          result: {
+            "word": word,
+            "explain": data_[alphabet][word]
+          },
+          showSuggest: false,
+          value: '',
+          showCard: true
+        })
+      }
     },
 
     onInput(event) {
@@ -47,8 +76,10 @@ Component({
         value: event.detail,
       });
       var prefix = event.detail //用户实时输入值
+      var valid_prefix = prefix.match(/[A-Za-z]+/);
       var newSource = [] //匹配的结果
-      if (prefix.length >= 2) {
+      if (valid_prefix != null && valid_prefix[0].length >= 2) {
+        prefix = prefix.trim();
         prefix = prefix.toLowerCase();
         prefix = prefix.replace(prefix[0], prefix[0].toUpperCase());
         this.data.adapterSource[prefix[0]].forEach(function(word) {

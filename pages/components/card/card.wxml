@@ -2,18 +2,12 @@
 <view>
 
   <van-popup custom-class="my-popup" round show="{{ show }}" bind:close="onClose">
-    <van-cell title="{{ result }}" custom-class="my-cell" title-class="my-title" label="by The Economist">
+    <van-cell title="{{ result.word }}" custom-class="my-cell" title-class="my-title" label="by The Economist">
       <van-icon name="close" bindtap="onClose" />
     </van-cell>
 
     <view scroll-y="true" bindscroll="scroll" style="padding:5px 15px; line-height: 150%;">
-      <text>A movement in europe and the americas dedicated to ending slavery, including a transatlantic slave trade that saw perhaps 15m africans transported to the americas between the 15th and 19th centuries. the british abolitionist movement was founded
-        by quakers in 1873. influenced by the campaigning zeal of william wilberforce (1759\u20131833), a british member of parliament, britain outlawed the trading of slaves throughout its empire in 1807 (the Ïpossession of slaves remained lawful until
-        1834). france, which had originally condemned slavery in its 1795 constitution, incorporating its declaration of human rights, followed suit in 1848. in the united states abolitionism can be traced to a quaker petition against slavery in 1688,
-        but success was, to say the least, gradual: northern states banned slavery in the early 19th century, with the importation of slaves being outlawed in 1808, but southern states considered slavery an essential part of their economy and way of life
-        \u2013 hence the bloody american civil war of 1861\u201365. with the defeat of the south and the subsequent passing of the 13th amendment of the constitution, slavery was formally ended in the united states in dent passing of the 13th amendment
-        of the constitution, slavery was formally ended in the united states in dent passing of the 13th amendment of the constitution, slavery was formally ended in the united states in december 1865. in law, there is now no slavery in the world; in
-        practice, the un calculates that around 27m people worldwide live in slavery.</text>
+      <text>{{ result.explain }}</text>
     </view>
 
     <van-row custom-class="my-row">
