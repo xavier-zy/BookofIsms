@@ -3,16 +3,14 @@
 
 <view class="container">
 
-  <van-row wx:for="{{dataList}}" wx:key="index">
+  <van-row wx:for="{{alphabets}}" wx:key="index">
     <van-col span="2">
-      <view class="my-hint" id="{{alphabets[index]}}">
-        {{alphabets[index]}}
+      <view class="my-hint" id="{{item}}">
+        {{item}}
       </view>
     </van-col>
     <van-col span="22">
-      <view wx:for="{{dataList[index]}}" wx:for-item="words" wx:key="index">
-        <van-cell wx:for="{{words}}" wx:for-item="word" wx:key="word" title="{{word}}" value="{{index}}" title-class="my-title" />
-      </view>
+      <van-cell wx:for="{{dataList[item]}}" wx:for-item="word" wx:key="index" title="{{word}}" value="{{index}}" title-class="my-title" />
     </van-col>
   </van-row>
 

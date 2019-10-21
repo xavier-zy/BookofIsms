@@ -1,5 +1,5 @@
 // pages/components/search/search.js
-var jsonData = require('../../../data/Isms2.js');
+var wordsData = require('../../../data/words.js');
 
 Component({
   /**
@@ -16,19 +16,13 @@ Component({
     value: '',
     showSuggest: false,
     bindSource: [],
-    adapterSource: []
+    adapterSource: {}
   },
 
   lifetimes: {
     attached: function() {
-      var temp = [];
-      jsonData.isms.slice(0, 20).forEach(function(item, index) {
-        temp.push(item.word);
-      });
       this.setData({
-        //jsonData.dataList获取json.js里定义的json数据，并赋值给dataList
-        dataList: jsonData.isms.slice(0, 20),
-        adapterSource: temp
+        adapterSource: wordsData.words
       });
     }
   },
@@ -54,7 +48,7 @@ Component({
       if (prefix.length >= 2) {
         prefix = prefix.toLowerCase();
         prefix = prefix.replace(prefix[0], prefix[0].toUpperCase());
-        this.data.adapterSource.forEach(function(word) {
+        this.data.adapterSource[prefix[0]].forEach(function(word) {
           if (word.indexOf(prefix) != -1) {
             newSource.push(word)
           }

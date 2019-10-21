@@ -1,5 +1,5 @@
 // pages/isms_list/isms_list.js
-var jsonData = require('../../data/Isms2.js');
+var wordsData = require('../../data/words.js');
 
 Page({
 
@@ -9,7 +9,6 @@ Page({
   data: {
     position: '',
     dataList: [],
-    countList: [],
     alphabets: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
       'I', 'J', 'K', 'L', 'M', 'N', 'O',
       'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'Z'
@@ -20,38 +19,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    const data = wordsData.words;
     this.setData({
+      dataList: data,
       position: options.position
-    });
-
-    var word_count = [];
-    var words = [];
-    const data = jsonData.isms;
-
-    var count = 0
-    words.push(data[0].word);
-    for (var i = 1; i < data.length; i++) {
-      words.push(data[i].word);
-      if (data[i].word[0] == data[i - 1].word[0]) {
-        count++;
-      } else {
-        word_count.push(count + 1);
-        count = 0;
-      }
-    };
-    word_count.push(count + 1);
-
-    var data_list = new Array();
-    var temp = 0;
-
-    word_count.forEach((cnt, index) => {
-      data_list[index] = new Array(words.slice(temp, cnt + temp));
-      temp += cnt;
-    });
-
-    this.setData({
-      countList: word_count,
-      dataList: data_list
     });
 
     if (this.data.position == 'W-Z') {
