@@ -16,7 +16,8 @@ Component({
     value: '',
     showSuggest: false,
     bindSource: [],
-    adapterSource: {}
+    adapterSource: {},
+    showCard: false
   },
 
   lifetimes: {
@@ -35,7 +36,8 @@ Component({
       console.log(this.data.value);
       this.setData({
         showSuggest: false,
-        value: ''
+        value: '',
+        showCard: true
       });
     },
 

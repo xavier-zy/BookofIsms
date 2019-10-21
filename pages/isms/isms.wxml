@@ -2,7 +2,6 @@
 <search></search>
 
 <view class="container">
-
   <van-grid clickable square>
     <view wx:for="{{ alphabets }}" wx:key="item">
       <van-grid-item id="{{item}}" text="{{item}}" wx:if="{{item!='*'}}" bind:click="toListPage" />
@@ -14,7 +13,5 @@
   </van-grid>
 
   <view style="height:60px"></view>
-
   <menu tabNo="1" showGrid="{{showGrid}}"></menu>
-
 </view>

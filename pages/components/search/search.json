@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "van-search": "../../../dist/search/index"
+    "van-search": "../../dist/search/index",
+    "card": "../card/card"
   }
 }

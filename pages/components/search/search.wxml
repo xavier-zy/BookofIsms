@@ -9,4 +9,4 @@
   </view>
 </view>
 
-
+<card showCard="{{showCard}}"></card>
