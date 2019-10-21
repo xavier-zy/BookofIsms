@@ -4,21 +4,21 @@
   top: 50% !important;
   width: 85%;
   overflow: hidden;
-  height: 90%;
+  max-height: 90%;
   font-family: "Charter", "Times", "Helvetica";
   /* padding-bottom: 20px; */
 }
-
-/* .my-cell {
-  top: 0;
-  position: fixed;
-  z-index: 99999;
-  _position: static;
+/* 
+.my-cell {
+   -webkit-flex: 0;
+  flex: 0 !important;
+  overflow: scroll;
 } */
 
 .my-title {
   color: #e3120b !important;
   font-size: 20px !important;
+  overflow: scroll;
 }
 
 .my-row {
