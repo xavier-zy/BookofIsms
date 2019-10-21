@@ -9,4 +9,9 @@
   </view>
 </view>
 
-<card showCard="{{showCard}}"></card>
+<view wx:if="{{showCard}}">
+  <card showCard="{{showCard}}" searchResult="{{result}}"></card>
+</view>
+<view wx:else>
+  <card showCard="{{showCard}}" searchResult="{{result}}"></card>
+</view>

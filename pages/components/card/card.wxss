@@ -1,1 +1,36 @@
 /* pages/components/card/card.wxss */
+
+.my-popup {
+  top: 50% !important;
+  width: 85%;
+  overflow: hidden;
+  height: 90%;
+  font-family: "Charter", "Times", "Helvetica";
+  /* padding-bottom: 20px; */
+}
+
+/* .my-cell {
+  top: 0;
+  position: fixed;
+  z-index: 99999;
+  _position: static;
+} */
+
+.my-title {
+  color: #e3120b !important;
+  font-size: 20px !important;
+}
+
+.my-row {
+  color: #e3120b;
+  text-align: center;
+  line-height: 30px;
+  padding: 5px 0;
+  border-top: 0.55px solid #eee;
+}
+
+.my-col {
+  overflow: scroll;
+  margin-right: 15px;
+  margin-left: 7.5px;
+}

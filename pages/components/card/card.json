@@ -3,6 +3,12 @@
   "usingComponents": {
     "van-popup": "../../dist/popup/index",
     "van-dialog": "../../dist/dialog/index",
-    "van-tabbar": "../../dist/tabbar/index"
+    "van-tabbar": "../../dist/tabbar/index",
+    "van-panel": "../../dist/panel/index",
+    "van-cell": "../../dist/cell/index",
+    "van-icon": "../../dist/icon/index",
+    "van-sticky": "../../dist/sticky/index",
+    "van-row": "../../dist/row/index",
+    "van-col": "../../dist/col/index"
   }
 }
