@@ -1,5 +1,6 @@
 // pages/isms_list/isms_list.js
 var wordsData = require('../../data/words.js');
+var explainsData = require('../../data/explains.js');
 
 Page({
 
@@ -12,7 +13,14 @@ Page({
     alphabets: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
       'I', 'J', 'K', 'L', 'M', 'N', 'O',
       'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'Z'
-    ]
+    ],
+    tobeSearched: ''
+  },
+
+  onSearch(event) {
+    this.setData({
+      tobeSearched: event.currentTarget.dataset.text
+    });
   },
 
   /**

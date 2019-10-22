@@ -1,18 +1,9 @@
 <!--index.wxml-->
 <view class="container">
-  <!-- <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view> -->
-  <navigator url='../isms/isms'>
-    <van-panel custom-class="content" title="各种主义" desc="Book of Isms" status="The Economist">
-      <view>From</view>
-      <view>Abolitionism</view>
-      <view>to</view>
-      <view>Zoraoastrianism</view>
+    <van-panel title="各种主义" desc="Book of Isms" status="The Economist">
+      <view class="my-word">{{ randomWord.word }}</view>
+      <view class="content">{{ randomWord.explain }}</view>
     </van-panel>
-  </navigator>
+  
+  <menu tabNo="0"></menu>
 </view>

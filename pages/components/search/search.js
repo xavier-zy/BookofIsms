@@ -7,7 +7,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    word: String
   },
 
   /**
@@ -25,7 +25,7 @@ Component({
   lifetimes: {
     attached: function() {
       this.setData({
-        adapterSource: wordsData.words
+        adapterSource: wordsData.words,
       });
     }
   },
@@ -116,6 +116,25 @@ Component({
         showSuggest: false
       })
       this.onSearch();
+    }
+  },
+
+  observers: {
+    'word': function () {
+      if (this.data.word != "") {
+        const data_ = explainsData.explains;
+        var word = this.data.word;
+        var alphabet = word[0];
+        this.setData({
+          result: {
+            "word": word,
+            "explain": data_[alphabet][word]
+          },
+          showSuggest: false,
+          value: '',
+          showCard: true
+        })
+      }
     }
   }
 })

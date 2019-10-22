@@ -33,8 +33,6 @@ Component({
    */
   methods: {
     onChange: function(event) {
-      console.log("Tab No: " + this.data.tabNo);
-
       if (event.detail==0){
         wx.navigateTo({
           url: '../index/index',

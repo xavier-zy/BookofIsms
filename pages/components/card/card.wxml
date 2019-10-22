@@ -22,7 +22,7 @@
     <van-row custom-class="my-row">
       <van-col span="12">
         <view style="overflow: scroll; margin-right: 6px; margin-left: 15px;">
-          before
+          previous
         </view>
       </van-col>
       <van-col span="12">

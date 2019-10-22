@@ -3,6 +3,7 @@
     "menu": "../components/menu/menu",
     "search": "../components/search/search",
     "van-cell": "../../../dist/cell/index",
+    "van-tag": "../../../dist/tag/index",
     "van-row": "../../../dist/row/index",
     "van-col": "../../../dist/col/index"
   }

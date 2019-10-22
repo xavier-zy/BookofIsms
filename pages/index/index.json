@@ -2,6 +2,7 @@
   "usingComponents": {
     "van-button": "../../dist/button/index",
     "van-panel": "../../dist/panel/index",
-    "van-cell": "../../dist/cell/index"
+    "van-cell": "../../dist/cell/index",
+    "menu": "../components/menu/menu"
   }
 }

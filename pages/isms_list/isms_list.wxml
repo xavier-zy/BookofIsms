@@ -1,5 +1,5 @@
 <!--pages/isms_list/isms_list.wxml-->
-<search></search>
+<search word="{{tobeSearched}}"></search>
 
 <view class="container">
 
@@ -10,11 +10,22 @@
       </view>
     </van-col>
     <van-col span="22">
-      <van-cell wx:for="{{dataList[item]}}" wx:for-item="word" wx:key="index" title="{{word}}" value="{{index}}" title-class="my-title" />
+      <van-cell wx:for="{{dataList[item]}}" wx:for-item="word" wx:key="index" value="{{index}}" title-class="my-title">
+        <view slot="title">
+          <view data-text="{{word}}" class="van-cell-text" bindtap="onSearch">{{word}}</view>
+        </view>
+      </van-cell>
     </van-col>
   </van-row>
 
   <view style="height:60px"></view>
   <menu tabNo="1" showList></menu>
 
+</view>
+
+<view wx:if="{{showCard}}">
+  <card showCard="{{showCard}}" searchResult="{{result}}"></card>
+</view>
+<view wx:else>
+  <card showCard="{{showCard}}" searchResult="{{result}}"></card>
 </view>
