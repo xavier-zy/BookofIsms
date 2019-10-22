@@ -2,7 +2,7 @@
 <view class="container">
     <van-panel title="各种主义" desc="Book of Isms" status="The Economist">
       <view class="my-word">{{ randomWord.word }}</view>
-      <view class="content">{{ randomWord.explain }}</view>
+      <view class="content" bindtap="onRandom">{{ randomWord.explain }}</view>
     </van-panel>
   
   <menu tabNo="0"></menu>

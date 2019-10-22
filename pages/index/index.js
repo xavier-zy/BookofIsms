@@ -18,12 +18,7 @@ Page({
     randomWord: {}
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
+  onRandom: function() {
     var randomNo = Math.floor((Math.random() * 24));
     var data = explainsData.explains;
     var letter = this.data.alphabets[randomNo];
@@ -38,5 +33,8 @@ Page({
         "explain": data[letter][word]
       }
     });
+  },
+  onLoad: function () {
+    this.onRandom();
   }
 })
