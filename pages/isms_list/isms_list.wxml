@@ -10,9 +10,9 @@
       </view>
     </van-col>
     <van-col span="22">
-      <van-cell wx:for="{{dataList[item]}}" wx:for-item="word" wx:key="index" value="{{index}}" title-class="my-title">
+      <van-cell wx:for="{{dataList[item]}}" wx:for-item="word" wx:key="index" value="{{word[1]}}" title-class="my-title">
         <view slot="title">
-          <view data-text="{{word}}" class="van-cell-text" bindtap="onSearch">{{word}}</view>
+          <view data-text="{{word[0]}}" class="van-cell-text" bindtap="onSearch">{{word[0]}}</view>
         </view>
       </van-cell>
     </van-col>

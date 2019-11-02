@@ -1,6 +1,5 @@
 // pages/isms_list/isms_list.js
 var wordsData = require('../../data/words.js');
-var explainsData = require('../../data/explains.js');
 
 Page({
 

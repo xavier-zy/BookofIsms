@@ -9,7 +9,7 @@
     bind:close="onClose"
   >
 
-    <van-cell title="{{ result.word }}" title-width="90%" custom-class="my-cell" title-class="my-title" label="by The Economist">
+    <van-cell title="{{ result.word }}" title-width="90%" custom-class="my-cell" title-class="my-title" label="{{ result.chinese }}">
       <view bindtap="onClose" style="height:100%">
         <van-icon name="close" size="20px" />
       </view>

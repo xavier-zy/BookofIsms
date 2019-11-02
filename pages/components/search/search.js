@@ -1,5 +1,7 @@
 // pages/components/search/search.js
 var wordsData = require('../../../data/words.js');
+var wordsData2 = require('../../../data/words2.js');
+
 var explainsData = require('../../../data/explains.js');
 
 Component({
@@ -46,6 +48,7 @@ Component({
       var word = this.data.value;
       word = word.replace(word[0], word[0].toUpperCase());
       var alphabet = word[0];
+      var chinese = wordsData2.words2[alphabet][word]
       if (data_[alphabet] == null) {
         this.setData({
           result: "",
@@ -63,6 +66,7 @@ Component({
         this.setData({
           result: {
             "word": word,
+            "chinese": chinese,
             "explain": data_[alphabet][word]
           },
           showSuggest: false,
@@ -84,8 +88,8 @@ Component({
         prefix = prefix.toLowerCase();
         prefix = prefix.replace(prefix[0], prefix[0].toUpperCase());
         this.data.adapterSource[prefix[0]].forEach(function(word) {
-          if (word.indexOf(prefix) != -1) {
-            newSource.push(word)
+          if (word[0].indexOf(prefix) != -1) {
+            newSource.push(word[0])
           }
         })
       }
@@ -125,9 +129,11 @@ Component({
         const data_ = explainsData.explains;
         var word = this.data.word;
         var alphabet = word[0];
+        var chinese = wordsData2.words2[alphabet][word]
         this.setData({
           result: {
             "word": word,
+            "chinese": chinese,
             "explain": data_[alphabet][word]
           },
           showSuggest: false,

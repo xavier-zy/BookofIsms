@@ -1,7 +1,8 @@
 <!--index.wxml-->
 <view class="container">
     <van-panel title="各种主义" desc="Book of Isms" status="The Economist">
-      <view class="my-word">{{ randomWord.word }}</view>
+      <view class="my-word">{{ randomWord.word[0] }}</view>
+      <view class="my-translate">{{ randomWord.word[1] }}</view>
       <view class="content" bindtap="onRandom">{{ randomWord.explain }}</view>
     </van-panel>
   

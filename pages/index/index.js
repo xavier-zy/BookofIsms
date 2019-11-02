@@ -30,7 +30,7 @@ Page({
     this.setData({
       randomWord: {
         "word": word,
-        "explain": data[letter][word]
+        "explain": data[letter][word[0]]
       }
     });
   },
