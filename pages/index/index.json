@@ -3,6 +3,7 @@
     "van-button": "../../dist/button/index",
     "van-panel": "../../dist/panel/index",
     "van-cell": "../../dist/cell/index",
-    "menu": "../components/menu/menu"
+    "menu": "../components/menu/menu",
+    "van-notice-bar": "../../dist/notice-bar/index"
   }
 }

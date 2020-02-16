@@ -1,21 +1,25 @@
 <!--pages/components/card/card.wxml-->
 <view>
 
-  <van-popup 
-    custom-class="my-popup" 
-    custom-style="max-height:{{maxHeight}}px;" 
-    show="{{ show }}"
-    duration="500"
-    bind:close="onClose"
-  >
+  <van-popup custom-class="my-popup" custom-style="max-height:{{maxHeight}}px;" show="{{ show }}" duration="500" bind:close="onClose">
 
-    <van-cell title="{{ result.word }}" title-width="90%" custom-class="my-cell" title-class="my-title" label="{{ result.chinese }}">
-      <view bindtap="onClose" style="height:100%">
+    <van-cell title="{{ result.word_zh }}" title-width="90%" custom-class="my-cell" title-class="my-title" label="{{ result.word }}" bindtap="switchLang" wx:if="{{ zh }}">
+      <view catchtap="onClose" style="height:100%">
         <van-icon name="close" size="20px" />
       </view>
     </van-cell>
 
-    <view scroll-y="true" bindscroll="scroll" style="padding:5px 15px; line-height: 150%;">
+    <van-cell title="{{ result.word }}" title-width="90%" custom-class="my-cell" title-class="my-title" label="{{ result.word_zh }}" bindtap="switchLang" wx:else>
+      <view catchtap="onClose" style="height:100%">
+        <van-icon name="close" size="20px" />
+      </view>
+    </van-cell>
+
+    <view scroll-y="true" bindscroll="scroll" style="padding:5px 15px; line-height: 150%;" wx:if="{{ zh }}">
+      <text>{{ result.explain_zh }}</text>
+    </view>
+
+    <view scroll-y="true" bindscroll="scroll" style="padding:5px 15px; line-height: 150%;" wx:else>
       <text>{{ result.explain }}</text>
     </view>
 

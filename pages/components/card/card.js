@@ -14,7 +14,8 @@ Component({
   data: {
     show: false,
     maxHeight: 0,
-    result: []
+    result: [],
+    zh: false
   },
 
   lifetimes: {
@@ -39,6 +40,12 @@ Component({
       this.setData({
         show: false
       });
+    },
+
+    switchLang: function () {
+      this.setData({
+        zh: !this.data.zh
+      })
     }
   },
 

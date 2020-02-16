@@ -2,7 +2,8 @@
 var wordsData = require('../../../data/words.js');
 var wordsData2 = require('../../../data/words2.js');
 
-var explainsData = require('../../../data/explains.js');
+const db = wx.cloud.database()
+const _ = db.command
 
 Component({
   /**
@@ -63,16 +64,20 @@ Component({
           value: ''
         })
       } else {
-        this.setData({
-          result: {
-            "word": word,
-            "chinese": chinese,
-            "explain": data_[alphabet][word]
-          },
-          showSuggest: false,
-          value: '',
-          showCard: true
-        })
+        var that = this
+        db.collection('isms').where({
+          word: _.eq(word)
+          })
+          .get({
+            success: function(res) {
+              that.setData({
+                result: res.data[0],
+                showSuggest: false,
+                value: '',
+                showCard: true
+              })
+            }
+          })
       }
     },
 
@@ -124,22 +129,24 @@ Component({
   },
 
   observers: {
-    'word': function () {
+    'word': function() {
       if (this.data.word != "") {
-        const data_ = explainsData.explains;
+        var that = this
+
         var word = this.data.word;
-        var alphabet = word[0];
-        var chinese = wordsData2.words2[alphabet][word]
-        this.setData({
-          result: {
-            "word": word,
-            "chinese": chinese,
-            "explain": data_[alphabet][word]
-          },
-          showSuggest: false,
-          value: '',
-          showCard: true
+        db.collection('isms').where({
+          word: _.eq(word)
         })
+          .get({
+            success: function (res) {
+              that.setData({
+                result: res.data[0],
+                showSuggest: false,
+                value: '',
+                showCard: true
+              })
+            }
+          })
       }
     }
   }

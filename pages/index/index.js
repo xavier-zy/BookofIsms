@@ -1,9 +1,9 @@
 //index.js
 //获取应用实例
-var wordsData = require('../../data/words.js');
-var explainsData = require('../../data/explains.js');
-
 const app = getApp()
+const db = wx.cloud.database()
+const _ = db.command
+const recordsNum = app.globalData.recordsNum
 
 Page({
   data: {
@@ -15,26 +15,54 @@ Page({
       'I', 'J', 'K', 'L', 'M', 'N', 'O',
       'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'Z'
     ],
-    randomWord: {}
+    randomIsm: {},
+    randomIsm_: [],
+    zh: false
   },
+
   //事件处理函数
   onRandom: function() {
-    var randomNo = Math.floor((Math.random() * 24));
-    var data = explainsData.explains;
-    var letter = this.data.alphabets[randomNo];
-    var words = wordsData.words;
+    var that = this
+    var randomNo = Math.floor((Math.random() * recordsNum));
 
-    var randomNo_ = Math.floor((Math.random() * words[letter].length));
-    var word = words[letter][randomNo_]
-
-    this.setData({
-      randomWord: {
-        "word": word,
-        "explain": data[letter][word[0]]
-      }
-    });
+    db.collection('isms').where({
+        index: _.eq(randomNo)
+      })
+      .get({
+        success: function(res) {
+          that.setData({
+            randomIsm: res.data[0]
+          });
+        }
+      })
   },
-  onLoad: function () {
+
+  switchLang: function() {
+    this.setData({
+      zh: !this.data.zh
+    })
+  },
+
+  // getRecordsNum : function(){
+  //   var that = this
+  //   wx.cloud.database().collection('isms').count({
+  //     success: function (res) {
+  //       console.log(res.total)
+  //       that.setData({
+  //         recordsNum: res.total
+  //       })
+  //     }
+  //   })
+  // },
+
+  onLoad: function() {
     this.onRandom();
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

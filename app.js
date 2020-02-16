@@ -1,4 +1,11 @@
 //app.js
+import locales from './utils/locales'
+import T from './utils/i18n'
+
+T.registerLocale(locales);	// (1)
+T.setLocaleByIndex(wx.getStorageSync('langIndex') || 0);	// (2)
+wx.T = T;  // (3)
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -6,12 +13,18 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    // 云环境初始化
+    wx.cloud.init({
+      env: 'book-of-isms-30bof'
+    })
+
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
-    })
+    }),
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -34,6 +47,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    recordsNum: 458
   }
 })
