@@ -1,4 +1,7 @@
 // pages/components/card/card.js
+const db = wx.cloud.database()
+const _ = db.command
+
 Component({
   /**
    * 组件的属性列表
@@ -19,7 +22,7 @@ Component({
   },
 
   lifetimes: {
-    attached: function () {
+    attached: function() {
       var mh = 0;
       wx.getSystemInfo({
         success(res) {
@@ -42,15 +45,29 @@ Component({
       });
     },
 
-    switchLang: function () {
+    switchLang: function() {
       this.setData({
         zh: !this.data.zh
       })
+    },
+
+    onSearchById: function(event) {
+      var indexTobeSearched = event.currentTarget.id === "prev" ? -1 : 1
+      db.collection('isms').where({
+        index: _.eq(this.data.result.index + indexTobeSearched)
+      }).get().then(
+        res => {
+          this.setData({
+            result: res.data[0]
+          })
+        }
+      )
+
     }
   },
 
-  observers:{
-    'searchResult': function () {
+  observers: {
+    'searchResult': function() {
       this.setData({
         show: this.data.showCard,
         result: this.data.searchResult

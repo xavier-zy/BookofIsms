@@ -25,12 +25,18 @@
 
     <van-row custom-class="my-row">
       <van-col span="12">
-        <view style="overflow: scroll; margin-right: 6px; margin-left: 15px;">
+        <view id="prev" wx:if="{{result.index>0}}" bindtap="onSearchById" >
+          previous
+        </view>
+        <view style="overflow: scroll; margin-right: 6px; margin-left: 15px; color: #999" wx:else>
           previous
         </view>
       </van-col>
       <van-col span="12">
-        <view style="overflow: scroll; margin-left: 6px; margin-right: 15px">
+        <view id="next" bindtap="onSearchById" wx:if="{{result.index<457}}">
+          next
+        </view>
+        <view style="overflow: scroll; margin-left: 6px; margin-right: 15px; color: #999" bindtap="onSearchById" wx:else>
           next
         </view>
       </van-col>
@@ -39,3 +45,5 @@
   </van-popup>
 
 </view>
+
+<search word="{{tobeSearched}}"></search>

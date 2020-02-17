@@ -48,6 +48,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    recordsNum: 458
+    recordsNum: 458,
+    showHint: true
   }
 })

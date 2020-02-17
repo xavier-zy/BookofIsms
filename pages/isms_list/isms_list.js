@@ -58,7 +58,7 @@ Page({
         if (res[0] && res[1]) {
           wx.pageScrollTo({
             scrollTop: res[0].top + res[1].scrollTop,
-            duration: 300,
+            duration: 500,
             fail: function() {
               console.log("fail")
             },

@@ -1,6 +1,5 @@
 // pages/components/search/search.js
 var wordsData = require('../../../data/words.js');
-var wordsData2 = require('../../../data/words2.js');
 
 const db = wx.cloud.database()
 const _ = db.command
@@ -38,7 +37,7 @@ Component({
    */
   methods: {
     onSearch() {
-      const data_ = explainsData.explains;
+      // const data_ = explainsData.explains;
 
       if (this.data.value == '') {
         this.setData({
@@ -47,29 +46,33 @@ Component({
       }
 
       var word = this.data.value;
-      word = word.replace(word[0], word[0].toUpperCase());
-      var alphabet = word[0];
-      var chinese = wordsData2.words2[alphabet][word]
-      if (data_[alphabet] == null) {
-        this.setData({
-          result: "",
-          showSuggest: false,
-          value: '',
-          showCard: false
+      try {
+        word = word.replace(word[0], word[0].toUpperCase());
+      } catch (err) {
+        wx.showToast({
+          title: '请重新输入',
+          icon: 'none',
+          image: '../../data/failure.png',
+          duration: 1000
         })
-      } else if (data_[alphabet][word] == null) {
-        this.setData({
-          result: "",
-          showSuggest: false,
-          value: ''
-        })
-      } else {
-        var that = this
-        db.collection('isms').where({
+      }
+
+      // var alphabet = word[0];
+      var that = this
+      db.collection('isms').where({
           word: _.eq(word)
-          })
-          .get({
-            success: function(res) {
+        })
+        .get({
+          success: function(res) {
+            console.log(res.data.length == 0)
+            if (res.data.length == 0) {
+              wx.showToast({
+                title: '请重新输入',
+                icon: 'none',
+                image: '../../data/failure.png',
+                duration: 1000
+              })
+            } else {
               that.setData({
                 result: res.data[0],
                 showSuggest: false,
@@ -77,8 +80,16 @@ Component({
                 showCard: true
               })
             }
-          })
-      }
+          },
+          fail: function() {
+            wx.showToast({
+              title: '没有结果',
+              icon: 'none',
+              image: '../../data/failure.png',
+              duration: 1000
+            })
+          }
+        })
     },
 
     onInput(event) {
@@ -135,10 +146,10 @@ Component({
 
         var word = this.data.word;
         db.collection('isms').where({
-          word: _.eq(word)
-        })
+            word: _.eq(word)
+          })
           .get({
-            success: function (res) {
+            success: function(res) {
               that.setData({
                 result: res.data[0],
                 showSuggest: false,

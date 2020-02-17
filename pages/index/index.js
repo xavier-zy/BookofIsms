@@ -17,7 +17,8 @@ Page({
     ],
     randomIsm: {},
     randomIsm_: [],
-    zh: false
+    zh: false,
+    showHint: true
   },
 
   //事件处理函数
@@ -57,12 +58,15 @@ Page({
 
   onLoad: function() {
     this.onRandom();
+    this.setData({
+      showHint: app.globalData.showHint
+    })
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

@@ -1,4 +1,6 @@
 // pages/components/menu.js
+const app = getApp()
+
 Component({
   /**
    * 组件的属性列表
@@ -33,6 +35,8 @@ Component({
    */
   methods: {
     onChange: function(event) {
+      // 使不再显示首页提示栏
+      app.globalData.showHint = false
       if (event.detail==0){
         wx.navigateTo({
           url: '../index/index',
