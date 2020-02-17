@@ -8,4 +8,5 @@
 >* [《Book of Isms》—Amazon.com](https://www.amazon.com/Economist-Book-isms-Abolitionism-Zoroastrianism/dp/1846682983)
 
 微信小程序组件库：[Vant Weapp](https://youzan.github.io/vant-weapp/#/intro)
+
 语言切换功能使用了：[微信小程序语言切换（国际化）](https://upupming.site/2018/07/23/mini-program-i18n/)
