@@ -26,18 +26,18 @@
     <van-row custom-class="my-row">
       <van-col span="12">
         <view id="prev" wx:if="{{result.index>0}}" bindtap="onSearchById" >
-          previous
+          {{ language.cardTabs.prev }}
         </view>
         <view style="overflow: scroll; margin-right: 6px; margin-left: 15px; color: #999" wx:else>
-          previous
+          {{ language.cardTabs.prev }}
         </view>
       </van-col>
       <van-col span="12">
-        <view id="next" bindtap="onSearchById" wx:if="{{result.index<457}}">
-          next
+        <view id="next" wx:if="{{result.index<457}}" bindtap="onSearchById" >
+          {{ language.cardTabs.next }}
         </view>
-        <view style="overflow: scroll; margin-left: 6px; margin-right: 15px; color: #999" bindtap="onSearchById" wx:else>
-          next
+        <view style="overflow: scroll; margin-left: 6px; margin-right: 15px; color: #999" wx:else>
+          {{ language.cardTabs.next }}
         </view>
       </van-col>
     </van-row>

@@ -1,5 +1,7 @@
 //index.js
 //获取应用实例
+import event from '../../utils/event'
+
 const app = getApp()
 const db = wx.cloud.database()
 const _ = db.command
@@ -18,7 +20,8 @@ Page({
     randomIsm: {},
     randomIsm_: [],
     zh: false,
-    showHint: true
+    showHint: true,
+    language: {},
   },
 
   //事件处理函数
@@ -56,11 +59,19 @@ Page({
   //   })
   // },
 
+  setLanguage() {
+    this.setData({
+      language: wx.T.getLanguage()
+    });
+  },
+
   onLoad: function() {
     this.onRandom();
     this.setData({
-      showHint: app.globalData.showHint
-    })
+        showHint: app.globalData.showHint,
+      });
+    this.setLanguage(); // (1)
+    event.on("languageChanged", this, this.setLanguage); // (2)
   },
 
   /**

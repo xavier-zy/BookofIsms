@@ -1,12 +1,12 @@
 <!--index.wxml-->
 <view wx:if="{{ showHint }}">
-  <van-notice-bar mode="closeable" text="点击主义切换中/英文版本，中文来自百度机翻" />
+  <van-notice-bar mode="closeable" text="{{ language.hints.hint1 }}" />
   <view style="height:5px;"></view>
-  <van-notice-bar color="#1989FA" backgroundColor="#ECF9FF" mode="closeable" text="点击主义内容切换词条" />
+  <van-notice-bar color="#1989FA" backgroundColor="#ECF9FF" mode="closeable" text="{{ language.hints.hint2 }}" />
 </view>
 
 <view class="container">
-  <van-panel title="Book of Isms" desc="各种主义" status="The Economist" wx:if="{{ zh }}">
+  <van-panel title="{{ language.titles.title }}" desc="{{ language.titles.title_ }}" status="{{ language.titles.book }}" wx:if="{{ zh }}">
     <view bindtap="switchLang">
       <view class="my-word">{{ randomIsm.word_zh }}</view>
       <view class="my-translate">{{ randomIsm.word }}</view>
@@ -14,7 +14,7 @@
     <view class="content" bindtap="onRandom">{{ randomIsm.explain_zh }}</view>
   </van-panel>
 
-  <van-panel title="Book of Isms" desc="各种主义" status="The Economist" wx:else>
+  <van-panel title="{{ language.titles.title }}" desc="{{ language.titles.title_ }}" status="{{ language.titles.book }}" wx:else>
     <view bindtap="switchLang">
       <view class="my-word">{{ randomIsm.word }}</view>
       <view class="my-translate">{{ randomIsm.word_zh }}</view>

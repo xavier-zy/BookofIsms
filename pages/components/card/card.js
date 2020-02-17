@@ -1,4 +1,6 @@
 // pages/components/card/card.js
+import event from '../../../utils/event'
+
 const db = wx.cloud.database()
 const _ = db.command
 
@@ -18,7 +20,8 @@ Component({
     show: false,
     maxHeight: 0,
     result: [],
-    zh: false
+    zh: false,
+    language: {},
   },
 
   lifetimes: {
@@ -32,6 +35,8 @@ Component({
       this.setData({
         maxHeight: mh
       });
+      this.setLanguage();	// (1)
+      event.on("languageChanged", this, this.setLanguage); // (2)
     }
   },
 
@@ -63,6 +68,12 @@ Component({
         }
       )
 
+    },
+
+    setLanguage() {
+      this.setData({
+        language: wx.T.getLanguage()
+      });
     }
   },
 

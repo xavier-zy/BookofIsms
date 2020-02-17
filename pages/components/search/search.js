@@ -1,4 +1,5 @@
 // pages/components/search/search.js
+import event from '../../../utils/event'
 var wordsData = require('../../../data/words.js');
 
 const db = wx.cloud.database()
@@ -21,7 +22,8 @@ Component({
     bindSource: [],
     adapterSource: {},
     showCard: false,
-    result: {}
+    result: {},
+    language: {},
   },
 
   lifetimes: {
@@ -29,6 +31,8 @@ Component({
       this.setData({
         adapterSource: wordsData.words,
       });
+      this.setLanguage();	// (1)
+      event.on("languageChanged", this, this.setLanguage); // (2)
     }
   },
 
@@ -136,6 +140,12 @@ Component({
         showSuggest: false
       })
       this.onSearch();
+    },
+
+    setLanguage() {
+      this.setData({
+        language: wx.T.getLanguage()
+      });
     }
   },
 

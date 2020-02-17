@@ -1,4 +1,6 @@
 // pages/components/menu.js
+import event from '../../../utils/event'
+
 const app = getApp()
 
 Component({
@@ -16,17 +18,20 @@ Component({
   data: {
     active: 0,
     show: false,
-    checked_lang: true,
-    checked_prez: true,
-    showList_: false
+    checked_lang: wx.getStorageSync('langIndex') === 1 ? true : false,
+    showList_: false,
+    langIndex: 0,
+    language: {}
   },
 
   lifetimes: {
     attached: function() {
+      this.setLanguage();
       this.setData({
         active: parseInt(this.data.tabNo),
-        showList_: this.data.showList
-      })
+        showList_: this.data.showList,
+        langIndex: wx.getStorageSync('langIndex')
+      });
     }
   },
 
@@ -37,18 +42,18 @@ Component({
     onChange: function(event) {
       // 使不再显示首页提示栏
       app.globalData.showHint = false
-      if (event.detail==0){
+      if (event.detail == 0) {
         wx.navigateTo({
           url: '../index/index',
         })
-      } else if (event.detail == 1){
+      } else if (event.detail == 1) {
         wx.navigateTo({
           url: '../isms/isms',
         })
       }
     },
-    
-    onShowGrid(){
+
+    onShowGrid() {
       this.setData({
         showGrid: true
       })
@@ -71,20 +76,30 @@ Component({
       });
     },
 
-    onSwitchLang() {
+    onSwitchLang(e) {
       // 需要手动对 checked 状态进行更新
+      let index = e.detail === false ? 0 : 1;
+      this.setData({
+        langIndex: index
+      });
+      wx.T.setLocaleByIndex(index);
+      this.setLanguage();
+      event.emit('languageChanged');
+
+      wx.setStorage({
+        key: 'langIndex',
+        data: this.data.langIndex
+      })
       this.setData({
         checked_lang: !this.data.checked_lang
       });
     },
 
-    // onSwitchPrez() {
-    //   // 需要手动对 checked 状态进行更新
-    //   this.setData({
-    //     checked_prez: !this.data.checked_prez
-    //   });
-    //   this.triggerEvent("showGrid", this.data.checked_prez);
-    // }
+    setLanguage() {
+      this.setData({
+        language: wx.T.getLanguage()
+      });
+    }
   },
 
 })

@@ -36,7 +36,7 @@
   margin-left: 7.5px;
 }
 
-#prev {
+/* #prev {
   overflow: scroll;
   margin-right: 6px;
   margin-left: 15px;
@@ -46,4 +46,4 @@
   overflow: scroll;
   margin-left: 6px;
   margin-right: 15px;
-}
+} */

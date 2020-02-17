@@ -1,4 +1,5 @@
 // pages/isms/isms.js
+import event from '../../utils/event'
 
 Page({
 
@@ -13,7 +14,8 @@ Page({
       'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W-Z'
     ],
     showGrid: true,
-    position: ''
+    position: '',
+    language: {},
   },
 
   showGrid(e) {
@@ -44,11 +46,18 @@ Page({
     });
   },
 
+  setLanguage() {
+    this.setData({
+      language: wx.T.getLanguage()
+    });
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    this.setLanguage();	// (1)
+    event.on("languageChanged", this, this.setLanguage); // (2)
   },
 
   /**
