@@ -5,7 +5,7 @@ import event from '../../utils/event'
 const app = getApp()
 const db = wx.cloud.database()
 const _ = db.command
-const recordsNum = app.globalData.recordsNum
+let recordsNum
 
 Page({
   data: {
@@ -66,12 +66,24 @@ Page({
   },
 
   onLoad: function() {
-    this.onRandom();
-    this.setData({
-        showHint: app.globalData.showHint,
+    var that = this
+    wx.cloud.database().collection('isms').count()
+      .then(res => {
+        recordsNum = res.total;
+        this.onRandom();
+        that.setData({
+          showHint: app.globalData.showHint,
+        });
+        this.setLanguage(); // (1)
+        event.on("languageChanged", this, this.setLanguage); // (2)
       });
-    this.setLanguage(); // (1)
-    event.on("languageChanged", this, this.setLanguage); // (2)
+
+    // this.onRandom();
+    // this.setData({
+    //   showHint: app.globalData.showHint,
+    // });
+    // this.setLanguage(); // (1)
+    // event.on("languageChanged", this, this.setLanguage); // (2)
   },
 
   /**

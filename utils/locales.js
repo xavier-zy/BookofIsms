@@ -13,7 +13,7 @@ export default {
     "titles": {
       "title": "各种主义",
       "title_": "Book of Isms",
-      "book": "《经济学人》"
+      "book": "The Economist"
     },
     "hints": {
       "hint1": "点击主义切换中/英文版本，中文来自百度机翻",

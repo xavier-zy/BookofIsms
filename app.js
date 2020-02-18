@@ -16,7 +16,7 @@ App({
     // 云环境初始化
     wx.cloud.init({
       env: 'book-of-isms-30bof'
-    })
+    }),
 
     // 登录
     wx.login({
@@ -46,9 +46,9 @@ App({
       }
     })
   },
+
   globalData: {
     userInfo: null,
-    recordsNum: 458,
     showHint: true
   }
 })
